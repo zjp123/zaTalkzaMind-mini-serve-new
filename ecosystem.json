@@ -2,7 +2,7 @@
     "apps": [
         {
             "name": "zaTalkZaMind",
-            "script": "./bin/www",
+            "script": "index.js",
             "env": {
                 "COMMON_VARIABLE": "true"
             },

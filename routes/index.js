@@ -4,13 +4,13 @@ const config = require('../config')
 const jwt = require("jsonwebtoken");
 const httpRequest = require('../utils/httpRequest');
 
-router.get('/', async (ctx, next) => {
+router.get('/api', async (ctx, next) => {
   await ctx.render('index', {
     title: 'Hello Koa 2!'
   })
 })
 
-router.get('/string', async (ctx, next) => {
+router.get('/api/string', async (ctx, next) => {
   console.log('hahhahah');
   // ctx.body = 'koa2 string'
   ctx.body = {
@@ -21,13 +21,13 @@ router.get('/string', async (ctx, next) => {
   }
 })
 
-router.get('/json', async (ctx, next) => {
+router.get('/api/json', async (ctx, next) => {
   ctx.body = {
     title: 'koa2 json'
   }
 })
 
-router.post('/login', async (ctx, next) => {
+router.post('/api/login', async (ctx, next) => {
 
   console.log(ctx.path, ctx.method, ctx.request.body, 'kkkkkkkkkkkk');
   const {code, userInfo} = ctx.request.body;

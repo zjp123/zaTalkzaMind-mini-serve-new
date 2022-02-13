@@ -18,6 +18,7 @@
             "ref": "origin/master",
             "repo": "git@github.com:zjp123/zaTalkzaMind-mini-serve-new.git",
             "path": "/home/zjp/www/zaTalkzaMind-mini-serve-new/production",
+            "post-deploy" : "npm install --registry=https://registry.npm.taobao.org && pm2 startOrRestart ecosystem.json --env production",
             "ssh_options": "StrictHostKeyChecking=no",
             "env": {
                 "NODE_ENV": "production"

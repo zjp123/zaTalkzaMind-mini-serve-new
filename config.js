@@ -11,7 +11,8 @@ module.exports = {
 
   APPID: 'wx257ba6bdbc773ff8',
   APP_SECRET: '26782e589c8808f8b05100851e68a71d', // 小程序密钥
-  mongodb: 'mongodb://0.0.0.0:27017/mon-mini',
+  // mongodb: 'mongodb://0.0.0.0:27017/mon-mini',
+  mongodb: 'mongodb://47.117.115.206:27017/mon-mini',
   mongoConfig: {
     autoIndex: false,
     keepAlive: true,

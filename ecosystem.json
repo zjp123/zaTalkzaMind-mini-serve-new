@@ -1,5 +1,5 @@
 {
-    "apps" : [
+    "apps": [
         {
             "name": "zaTalkZaMind",
             "script": "./app.js",

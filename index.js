@@ -4,30 +4,22 @@
  * Module dependencies.
  */
 
-var app = require('./app.js');
-var debug = require('debug')('demo:server');
-var http = require('http');
+const app = require('./app');
+// var debug = require('debug')('demo:server');
+const http = require('http');
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '8080');
+const port = normalizePort(process.env.PORT || '8080');
 // app.set('port', port);
 
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app.callback());
-
-/**
- * Listen on provided port, on all network interfaces.
- */
-
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+const server = http.createServer(app.callback());
 
 /**
  * Normalize a port into a number, string, or false.
@@ -86,5 +78,15 @@ function onListening() {
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+  // debug('Listening on ' + bind);
 }
+
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+ server.listen(port);
+ server.on('error', onError);
+ server.on('listening', onListening);
+ 

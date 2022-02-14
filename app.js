@@ -92,4 +92,7 @@ app.on('error', (err, ctx) => {
   console.error('server error', err, ctx)
 });
 
-module.exports = app
+app.listen(process.env.PORT || 8080, () => {
+  console.log('成功监听端口', process.env.PORT );
+});
+// module.exports = app

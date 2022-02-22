@@ -50,18 +50,30 @@ router.post('/api/login', async (ctx, next) => {
 
   console.log(result.result, 'login response');
   try {
-    const userOne = new User({...userInfo, openid: result.result.openid})
-    await userOne.save()
-    console.log('入库成功')
+    const findResult = await User.find({ openid: result.result.openid});
+    if (findResult.length > 0) {
+      console.log('已经入库');
+      // return 'success';
+    } else {
+      try {
+        const userOne = new User({...userInfo, openid: result.result.openid})
+        await userOne.save()
+        console.log('入库成功')
+      } catch (error) {
+        ctx.body({
+          code: 500,
+          success: false,
+          message: '入库有误',
+          data: err
+        });
+    
+      }
+    }
   } catch (error) {
-    ctx.body({
-      code: 500,
-      success: false,
-      message: '入库有误',
-      data: err
-    });
-
+    console.log('查询是否入库失败');
+    return 'err';
   }
+  
 
   // ctx.aaa = result.result.session_key;
   // ctx.openid = result.result.openid;
